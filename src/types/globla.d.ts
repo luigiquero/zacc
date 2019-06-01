@@ -3,7 +3,12 @@ declare module 'fusioncharts/core' {
   export default src;
 }
 
-declare module 'fusioncharts/viz/column2d' {
+declare module 'fusioncharts/viz/msline' {
+  const src: any;
+  export default src;
+}
+
+declare module 'fusioncharts/viz/radar' {
   const src: any;
   export default src;
 }

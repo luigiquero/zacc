@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AuthRoute from '../components/auth-route/AuthRoute';
 import Login from '../pages/login/Login';
+import Report from '../pages/report/Report';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,11 @@ const App: React.FC = () => {
             <div>
               Home
             </div>
+          </AuthRoute>
+        </Route>
+        <Route path="/report" exact>
+          <AuthRoute>
+            <Report/>
           </AuthRoute>
         </Route>
       </Switch>
