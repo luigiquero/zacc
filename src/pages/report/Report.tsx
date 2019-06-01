@@ -6,7 +6,6 @@ import Header from '../../components/header/Header';
 import { RadarChart } from './graphs/RadarChart';
 import { LineChart } from './graphs/LineChart';
 import { Card, FormGroup, NumericInput } from '@blueprintjs/core';
-import { Table, Column, Cell } from '@blueprintjs/table';
 
 import './report.scss';
 
