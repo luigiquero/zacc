@@ -4,14 +4,17 @@
   "private": true,
   "dependencies": {
     "@blueprintjs/core": "~3.15.1",
+    "fusioncharts": "^3.13.5",
     "normalize.css": "~8.0.1",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
+    "react-fusioncharts": "^3.0.1",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@types/fusioncharts": "^3.11.5",
     "@types/jest": "24.0.13",
     "@types/node": "12.0.4",
     "@types/react": "16.8.19",
