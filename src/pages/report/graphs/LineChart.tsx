@@ -32,7 +32,7 @@ export class LineChart extends React.Component<any> {
       showhovereffect: "1",
       drawcrossline: "1",
       theme: "fusion",
-      yaxisMaxValue: "12",
+      yaxisMaxValue: "10",
       yaxisMinValue: "0",
     },
     categories: [

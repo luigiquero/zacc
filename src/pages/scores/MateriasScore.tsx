@@ -42,7 +42,7 @@ export class MateriasScore extends React.Component<any> {
                     )}
                   />
                   <Column name="Nota" cellRenderer={(rowIndex) =>
-                    <Cell>{this.activities[i].provas[rowIndex].nota.toFixed(1)}</Cell>} />
+                    <Cell>{this.activities[i].provas[rowIndex].nota.toFixed(2)}</Cell>} />
                 </Table>
               </div>
             </Card>
@@ -67,7 +67,7 @@ export class MateriasScore extends React.Component<any> {
                 <Column name="Prova"
                         cellRenderer={(rowIndex) => <Cell style={{ color: Colors.TURQUOISE3, fontWeight: 'bold' }}>{this.activities[i].provas[rowIndex].name}</Cell>} />
                 <Column name="Nota" cellRenderer={(rowIndex) =>
-                  <Cell>{this.activities[i].provas[rowIndex].nota.toFixed(1)}</Cell>} />
+                  <Cell>{this.activities[i].provas[rowIndex].nota.toFixed(2)}</Cell>} />
               </Table>
             </div>
           </Card>
@@ -87,7 +87,7 @@ export class MateriasScore extends React.Component<any> {
                 <Column name="Prova"
                         cellRenderer={(rowIndex) => <Cell style={{ color: Colors.TURQUOISE3, fontWeight: 'bold' }}>{this.activities[i + 1].provas[rowIndex].name}</Cell>} />
                 <Column name="Nota" cellRenderer={(rowIndex) =>
-                  <Cell>{this.activities[i + 1].provas[rowIndex].nota.toFixed(1)}</Cell>} />
+                  <Cell>{this.activities[i + 1].provas[rowIndex].nota.toFixed(2)}</Cell>} />
               </Table>
             </div>
           </Card>
