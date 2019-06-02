@@ -79,6 +79,7 @@ const LoginForm = connect(({ user: { logged } }: AppState) => ({ logged }), { se
             </FormGroup>
 
             <Button
+              className="z-login-btn"
               type="submit"
               loading={loading}
               large
