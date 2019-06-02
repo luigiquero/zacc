@@ -94,15 +94,14 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
 const SuggestionCardInitial = ({ suggestSubject, checkSuggestions }: ReturnType<typeof useSuggestionCard>) => (
   <div className="initial">
     <p className="home__text home__text--suggestion">
-      Vimos que você não está tão bem em Português,
-      temos algumas sugestões de estudos para você!
+      Seu desempenho em Português merece atenção. Que tal um reforço?
     </p>
     <div className="home__positioner">
       <Button intent={Intent.NONE} large className="home__button home__button--suggestion">
         Sugerir Matéria
       </Button>
       <Button intent={Intent.PRIMARY} large className="home__button home__button--suggestion" onClick={checkSuggestions}>
-        Ver Sugestão
+        Ver Sugestões
       </Button>
     </div>
   </div>

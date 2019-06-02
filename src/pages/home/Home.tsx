@@ -87,7 +87,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                   <ColumnHeaderCell
                     style={{ backgroundColor: Colors.TURQUOISE4 }}
                     name="Nota de Corte" />}
-                  cellRenderer={(rowIndex) => <Cell style={{ backgroundColor: Colors.TURQUOISE4, color: Colors.WHITE }}>{vocations[rowIndex].notaDeCorte}</Cell>}/>
+                  cellRenderer={(rowIndex) => <Cell style={{ backgroundColor: Colors.TURQUOISE4, color: Colors.WHITE, fontWeight: 'bold' }}>{vocations[rowIndex].notaDeCorte}</Cell>}/>
                 <Column name="Cidade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].cidade}</Cell>}/>
               </Table>
 
