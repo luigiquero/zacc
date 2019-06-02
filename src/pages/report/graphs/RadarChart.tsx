@@ -8,36 +8,32 @@ charts(FusionCharts);
 const dataSource = {
   chart: {
     caption: "Skill Analysis of Harry",
-    subcaption: "Scale: 1 (low) to 5 (high)",
+    subcaption: "Escala: 0 (mínimo) a 10 (máximo)",
     theme: "fusion",
     showlegend: "0",
     showdivlinevalues: "0",
     showlimits: "0",
     showvalues: "1",
     plotfillalpha: "40",
-    plottooltext: "Harry's <b>$label</b> skill is rated as <b>$value</b>"
   },
   categories: [
     {
       category: [
         {
-          label: "Communication"
+          label: "História"
         },
         {
-          label: "Punctuality"
+          label: "Física"
         },
         {
-          label: "Problem Solving"
+          label: "Biologia"
         },
         {
-          label: "Meeting Deadlines"
+          label: "Química"
         },
         {
-          label: "Team Player"
+          label: "Matemática"
         },
-        {
-          label: "Technical Knowledge"
-        }
       ]
     }
   ],
