@@ -3,6 +3,7 @@ import Layout from '../../components/layout/Layout';
 import Content from '../../components/content/Content';
 import Menu from '../../components/menu/Menu';
 import Header from '../../components/header/Header';
+import { connect } from 'react-redux';
 
 const Home = () => {
   return (
@@ -22,4 +23,4 @@ const Home = () => {
   )
 };
 
-export default Home;
+export default connect()(Home);

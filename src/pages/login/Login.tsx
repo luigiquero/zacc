@@ -1,43 +1,60 @@
 import React from 'react';
 import Layout from '../../components/layout/Layout';
 import Content from '../../components/content/Content';
-import Header from '../../components/header/Header';
-import { FormGroup, InputGroup, Button } from '@blueprintjs/core';
+import { InputGroup, Button, Card, H1, Intent, FormGroup } from '@blueprintjs/core';
+
+import './login-page.scss';
 
 const LoginForm = () => {
+  const error = false;
+
+  const intent = error ? Intent.DANGER : Intent.NONE;
+  const helperText = error && 'Usuário ou senha incorretos';
+
   return (
-    <>
-      <FormGroup
-        label="Usuário"
-        labelFor="text-input"
+    <div className="login-page__positioner">
+      <div className="login-page__background" />
+      <Card
+        elevation={2}
+        className="login-page__card"
       >
-        <InputGroup id="text-input" placeholder="exemplo@ies.com" />
-      </FormGroup>
+        <H1>Bem Vindo!</H1>
 
-      <FormGroup
-        label="Senha"
-        labelFor="text-input"
-      >
-        <InputGroup id="text-input" placeholder="********" />
-      </FormGroup>
+        <FormGroup
+          intent={intent}
+          helperText={helperText}
+        >
+          <InputGroup
+            intent={intent}
+            leftIcon="user"
+            className="margin-bottom"
+            placeholder="Usuário"
+          />
+          <InputGroup
+            intent={intent}
+            leftIcon="key"
+            placeholder="Senha"
+          />
+        </FormGroup>
 
-      <Button type="button">Login</Button>
-    </>
-  )
-}
+        <Button type="button" large intent={Intent.PRIMARY}>
+          Entrar
+        </Button>
+      </Card>
+    </div>
+  );
+};
 
 const Home = () => {
   return (
     <Layout.Root>
       <Layout.Main>
-        <Header>
-        </Header>
         <Content>
-          <LoginForm/>
+          <LoginForm />
         </Content>
       </Layout.Main>
     </Layout.Root>
-  )
+  );
 };
 
 export default Home;

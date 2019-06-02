@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { AppState } from '../../redux/Store';
+import userReducer from '../../redux/user';
 
-class AuthRoute extends React.Component {
+const mapStateToProps = ({ user: { logged } }: AppState) => ({ logged });
+type AuthRouteProps = RouteComponentProps
+  & Pick<ReturnType<typeof userReducer>, 'logged'>
+  & { children: any };
 
-  public render() {
-    // @ts-ignore
-    // if (!this.props.logged) {
-    //   this.props.history.push('/login');
-    //   return null;
-    // }
+const AuthRoute = ({ children, history, logged }: AuthRouteProps) => {
+  useEffect(() => {
+    if (!logged) {
+      history.push('/login');
+    }
+  }, [logged]);
 
-    return this.props.children;
-  }
-}
+  if (!logged) return null;
 
-export default AuthRoute;
+  return children;
+};
+
+export default connect(mapStateToProps)(withRouter(AuthRoute));

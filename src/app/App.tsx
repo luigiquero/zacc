@@ -7,15 +7,15 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        <Route path="/home" exact>
+        <Route path={["/home", "/"]} exact>
           <AuthRoute>
             <div>
               Home
             </div>
           </AuthRoute>
+        </Route>
+        <Route path="/login" exact>
+          <Login />
         </Route>
       </Switch>
     </BrowserRouter>

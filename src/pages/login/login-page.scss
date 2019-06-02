@@ -1,0 +1,46 @@
+@import '~@blueprintjs/core/src/common/variables';
+
+.login-page__positioner {
+  align-items: center;
+  display: flex;
+  min-height: 100%;
+  position: relative;
+}
+
+.login-page__positioner .login-page__background {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  height: 100%;
+  width: 629px;
+  background-color: $turquoise4;
+}
+
+.login-page__positioner .login-page__card {
+  height: 358px;
+  margin-left: 503px;
+  width: 552px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page__card .bp3-heading {
+  margin-bottom: 28px;
+  color: $turquoise2;
+}
+
+.login-page__card .bp3-form-group {
+  margin-bottom: 31px;
+}
+
+.login-page__card .bp3-input-group {
+  width: 300px;
+  &.margin-bottom { margin-bottom: 26px; }
+}
+
+.login-page__card .bp3-button {
+  //margin-top: 5px;
+  width: 164px;
+}
