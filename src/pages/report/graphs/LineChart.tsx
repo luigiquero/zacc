@@ -3,6 +3,7 @@ import ReactFusioncharts from "react-fusioncharts";
 import React from "react";
 import FusionCharts from "fusioncharts";
 import store from "../../../redux/Store";
+import { Colors } from "@blueprintjs/core";
 
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -26,7 +27,8 @@ export class LineChart extends React.Component {
   
   private dataSource = {
     chart: {
-      caption: "Performance de notas",
+      paletteColors: `${Colors.ROSE3}, ${Colors.VIOLET3}, ${Colors.INDIGO3}, ${Colors.COBALT3}, ${Colors.TURQUOISE3}, ${Colors.FOREST3}, ${Colors.LIME3}`,
+      caption: "Evolução das notas",
       showhovereffect: "1",
       drawcrossline: "1",
       theme: "fusion",
@@ -57,7 +59,7 @@ export class LineChart extends React.Component {
         line: [
           {
             "startvalue": MEDIA_PRA_PASSAR,
-            "color": "#cccc",
+            "color": Colors.GRAY3,
             "valueOnRight": "1",
             "displayvalue": "Média"
           }
