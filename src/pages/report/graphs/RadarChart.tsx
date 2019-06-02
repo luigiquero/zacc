@@ -3,7 +3,7 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import React from "react";
 import store from "../../../redux/Store";
-
+import { Colors } from '@blueprintjs/core';
 charts(FusionCharts);
 
 export class RadarChart extends React.Component<any> {
@@ -32,14 +32,14 @@ export class RadarChart extends React.Component<any> {
     })
   }
 
+
   private dataSource = {
     chart: {
-      caption: this.props.title || "Média Geral por Matérias",
+      caption: this.props.title || "Desempenho por Matérias",
       theme: "fusion",
-      showlegend: "0",
+      showlegend: "1",
       showdivlinevalues: "0",
       showlimits: "0",
-      showvalues: "1",
       plotfillalpha: "40",
       yaxisMaxValue: "10",
       yaxisMinValue: "0",
@@ -52,8 +52,41 @@ export class RadarChart extends React.Component<any> {
     ],
     dataset: [
       {
-        seriesname: "User Ratings",
+        seriesname: "Nota do Aluno",
+        showvalues: "1",
         data: this.getAverageData(),
+      },
+      {
+        seriesname: "Media Nacional",
+        showvalues: "0",
+        showPlotBorder: "1",
+        plotBorderColor: Colors.COBALT3,
+        plotBorderThickness: "2",
+        plotBorderAlpha: "40",
+        alpha: "0",
+        data: [
+          {
+            value: "6"
+          },
+          {
+            value: "6"
+          },
+          {
+            value: "4"
+          },
+          {
+            value: "6"
+          },
+          {
+            value: "5"
+          },
+          {
+            value: "6"
+          },
+          {
+            value: "7"
+          },
+        ],
       }
     ]
   };
@@ -62,8 +95,8 @@ export class RadarChart extends React.Component<any> {
     return (
       <ReactFusioncharts
         type="radar"
-        // width="500"
-        // height="500"
+        width={this.props.width}
+        height={this.props.width}
         dataFormat="JSON"
         dataSource={this.dataSource}
       />

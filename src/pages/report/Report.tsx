@@ -20,7 +20,7 @@ const ChartPerformance = () => {
   return (
     <div className="z-performance">
       <Card className="z-radar">
-        <RadarChart />
+        <RadarChart width="500" height="500" />
       </Card>
 
       <Card className="z-line">
