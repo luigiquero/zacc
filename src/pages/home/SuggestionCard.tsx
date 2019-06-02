@@ -59,21 +59,26 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
       <Table
         enableRowHeader={false}
         numRows={_suggestions.length as number}
-        columnWidths={widths(3)}
+        columnWidths={widths(4)}
+        defaultRowHeight={40}
       >
         <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>
         <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
         <Column
           name=""
-          cellRenderer={(i) => (
+          cellRenderer={() => (
             <Cell>
-              <div>
-                <Link to="https://google.com" style={{ color: Colors.TURQUOISE3}}>Estudar</Link>
-                <Button minimal onClick={swap(i)} intent={Intent.PRIMARY} icon="refresh"/>
-              </div>
+              <Link to="https://google.com" style={{ color: Colors.TURQUOISE3, marginRight: 16, fontWeight: 'bold' }}>
+                Estudar!
+              </Link>
             </Cell>
           )}
         />
+        <Column name="" cellRenderer={(i) => (
+          <Cell>
+            <Button minimal onClick={swap(i)} icon="refresh"/>
+          </Cell>
+        )}/>
       </Table>
       <p onClick={props.reset} className="see__more">Veja Mais</p>
     </div>

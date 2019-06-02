@@ -94,8 +94,9 @@ export class PlanoEstudos extends React.Component {
         numRows={this.state.data.length}
         enableRowHeader={false}
         columnWidths={widths(3)}
+        defaultRowHeight={40}
       >
-        <Column name="Matéria" cellRenderer={this.renderMaterias}/>
+        <Column name="Matéria" cellRenderer={this.renderMaterias} />
         <Column name="Média" cellRenderer={this.renderMedia}/>
         <Column name="Horas de Estudos" cellRenderer={this.renderStudyHours}/>
       </Table>

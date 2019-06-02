@@ -71,6 +71,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 numRows={vocations.length}
                 enableRowHeader={false}
                 columnWidths={widths(5)}
+                defaultRowHeight={40}
               >
                 <Column name="Curso" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].curso}</Cell>}/>
                 <Column name="Faculdade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].faculdade}</Cell>}/>

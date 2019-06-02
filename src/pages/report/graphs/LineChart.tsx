@@ -15,7 +15,7 @@ export class LineChart extends React.Component<any> {
     return store.getState().activities.map((activity, index) => {
       return {
         seriesname: activity.materia,
-        visible: Number(!index).toString(),
+        visible: '1',
         data: activity.provas.map((prova: { nota: any; }) => {
           return {
             value: prova.nota
