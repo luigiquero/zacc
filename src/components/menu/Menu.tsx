@@ -8,7 +8,7 @@ const Menu = ({ children }: React.ComponentProps<'div'>) => {
     <div className="z-menu">
       <MenuItem to="/home" iconName="home" popover="Home" />
       <MenuItem to="/progresso" iconName="dashboard" popover="Progresso" />
-      <MenuItem to="/notas" iconName="series-configuration" popover="Notas" />
+      <MenuItem to="/notas" iconName="annotation" popover="Notas" />
     </div>
   );
 };
