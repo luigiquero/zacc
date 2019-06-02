@@ -15,7 +15,7 @@ export class LineChart extends React.Component<any> {
     return store.getState().activities.map((activity, index) => {
       return {
         seriesname: activity.materia,
-        visible: '1',
+        visible: index == 0 ? '1' : '0',
         data: activity.provas.map((prova: { nota: any; }) => {
           return {
             value: prova.nota
@@ -28,7 +28,7 @@ export class LineChart extends React.Component<any> {
   private dataSource = {
     chart: {
       paletteColors: `${Colors.ROSE3}, ${Colors.VIOLET3}, ${Colors.INDIGO3}, ${Colors.COBALT3}, ${Colors.TURQUOISE3}, ${Colors.FOREST3}, ${Colors.LIME3}`,
-      caption: "Evolução das notas",
+      caption: "Evolução das Notas",
       showhovereffect: "1",
       drawcrossline: "1",
       theme: "fusion",
