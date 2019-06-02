@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../../components/layout/Layout';
-import { InputGroup, Button, Card, H1, Intent, FormGroup } from '@blueprintjs/core';
+import { InputGroup, Button, Card, H1, Intent, FormGroup, Text, Colors } from '@blueprintjs/core';
 
 import LOGIN_SVG from '../../assets/images/login.svg';
 import './login-page.scss';
@@ -88,6 +87,7 @@ const LoginForm = connect(({ user: { logged } }: AppState) => ({ logged }), { se
             >
               Entrar
             </Button>
+            <p className="z-register-text">Ainda não está cadastrado? <a>Registre-se aqui</a></p>
           </Card>
         </form>
       </div>

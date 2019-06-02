@@ -12,6 +12,7 @@ import { userActions } from '../../redux/user';
 
 import './scores.scss';
 import { MateriasScore } from './MateriasScore';
+import store from '../../redux/Store';
 
 
 const Scores = connect(null, { setLogged: userActions.setLogged })(
@@ -21,10 +22,17 @@ const Scores = connect(null, { setLogged: userActions.setLogged })(
       history.push('/login');
     };
 
+    const user = store.getState().user;
+    
     return (
       <Layout.Root>
         <Header>
           <NavbarHeading>
+            <Button minimal large >
+              <Text className="z-text--gray">
+                Olá, {user.name}!
+              </Text>
+            </Button>
             <Button minimal large onClick={onClick}>
               <Text className="z-text--gray">
                 Sair

@@ -10,7 +10,7 @@ const fakeReject = (error: Error) => new Promise((__, rej) => {
 
 export const userService = {
   async login({ email, password }: { email: string, password: string}) {
-    const validEmail = 'usuario@teste.com';
+    const validEmail = 'zacc@mail.com';
     const validPassword = 'testeteste';
 
     if (validEmail !== email && validPassword !== password) {

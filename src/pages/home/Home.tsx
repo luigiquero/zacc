@@ -15,6 +15,7 @@ import SuggestionCard from './SuggestionCard';
 import { Cell, Column, Table, ColumnHeaderCell } from '@blueprintjs/table';
 import { RadarChart } from '../report/graphs/RadarChart';
 import { widths } from '../../utils/table';
+import store from '../../redux/Store';
 
 const vocations = [
   { curso: 'Matemática', faculdade: 'Usp', turno: 'Matutino', notaDeCorte: 643.0, cidade: 'São Paulo, SP' },
@@ -29,10 +30,17 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
       history.push('/login');
     };
 
+    const user = store.getState().user;
+
     return (
       <Layout.Root>
         <Header>
           <NavbarHeading>
+            <Button minimal large >
+              <Text className="z-text--gray">
+                Olá, {user.name}!
+              </Text>
+            </Button>
             <Button minimal large onClick={onClick}>
               <Text className="z-text--gray">
                 Sair
@@ -49,7 +57,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
               <Card elevation={2} className="home__card">
                 <img src={SUPER_SVG} alt="super heroi" className="home__svg home__svg--superhero"/>
                 <p className="home__text home__text--congrats">
-                  Parabéns você está entre os <span style={{color: Colors.GOLD4}}>7%
+                  Parabéns você está entre os <span style={{color: Colors.GOLD3}}>7%
                   melhores do Brasil</span> em Matemática
                 </p>
               </Card>
