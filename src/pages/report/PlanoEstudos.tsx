@@ -43,12 +43,14 @@ export class PlanoEstudos extends React.Component {
 
   private renderStudyHours = (row: number) => {
     const time = this.state.data[row].studyHour;
+    const totalMinutes = Math.floor(time * 60);
 
-    const decimals = time - Math.floor(time);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
 
     const message = _.filter([
-      time >= 1 && `${time.toFixed(0)}h`,
-      decimals > 0 && `${(decimals * 60).toFixed()}min`,
+      hours >= 1 && `${hours.toFixed(0)}h`,
+      minutes > 0 && `${(minutes).toFixed()}min`,
       time === 0 && 'N/A',
     ]).join(' ');
 
