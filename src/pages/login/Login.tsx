@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/layout/Layout';
 import Content from '../../components/content/Content';
 import { InputGroup, Button, Card, H1, Intent, FormGroup } from '@blueprintjs/core';
 
 import './login-page.scss';
+import { userService } from '../../utils/requests';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { userActions } from '../../redux/user';
+import { connect } from 'react-redux';
 
-const LoginForm = () => {
-  const error = false;
+const LoginForm = connect(null, { setLogged: userActions.setLogged })(
+  withRouter(({ history, setLogged }: RouteComponentProps & { setLogged: typeof userActions.setLogged }) => {
+  const [{ loading, error }, setState] = useState({ loading: false, error: '' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitLogin = async () => {
+    setState({ loading: true, error: '' });
+    try {
+      await userService.login({ email, password });
+      setState({ loading: false, error: '' });
+      setLogged();
+      history.push('/home');
+    } catch (err) {
+      setState({ loading: false, error: err.message });
+    }
+  };
 
   const intent = error ? Intent.DANGER : Intent.NONE;
-  const helperText = error && 'Usuário ou senha incorretos';
 
   return (
     <div className="login-page__positioner">
@@ -22,28 +40,40 @@ const LoginForm = () => {
 
         <FormGroup
           intent={intent}
-          helperText={helperText}
+          helperText={error}
         >
           <InputGroup
+            disabled={loading}
             intent={intent}
             leftIcon="user"
             className="margin-bottom"
             placeholder="Usuário"
+            value={email}
+            onChange={(e: any) => setEmail(e.target.value)}
           />
           <InputGroup
+            disabled={loading}
+            type="password"
             intent={intent}
             leftIcon="key"
+            value={password}
+            onChange={(e: any) => setPassword(e.target.value)}
             placeholder="Senha"
           />
         </FormGroup>
 
-        <Button type="button" large intent={Intent.PRIMARY}>
+        <Button
+          type="button"
+          loading={loading}
+          large intent={Intent.PRIMARY}
+          onClick={submitLogin}
+        >
           Entrar
         </Button>
       </Card>
     </div>
   );
-};
+}));
 
 const Home = () => {
   return (
