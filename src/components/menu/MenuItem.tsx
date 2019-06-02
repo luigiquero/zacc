@@ -27,7 +27,7 @@ const MenuItem = ({ location, to, iconName, popover }: MenuItemProps) => {
         <Popover
           interactionKind={PopoverInteractionKind.HOVER}
           hoverOpenDelay={0}
-          hoverCloseDelay={0}
+          hoverCloseDelay={500}
           position={'right'}
         >
           <Icon

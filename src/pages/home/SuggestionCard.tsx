@@ -66,19 +66,15 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
         <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
         <Column
           name=""
-          cellRenderer={() => (
+          cellRenderer={(i) => (
             <Cell>
               <Link to="https://google.com" style={{ color: Colors.TURQUOISE3, marginRight: 16, fontWeight: 'bold' }}>
                 Estudar!
               </Link>
+              <Button minimal onClick={swap(i)} icon="refresh"/>
             </Cell>
           )}
         />
-        <Column name="" cellRenderer={(i) => (
-          <Cell>
-            <Button minimal onClick={swap(i)} icon="refresh"/>
-          </Cell>
-        )}/>
       </Table>
       <p onClick={props.reset} className="see__more">Veja Mais</p>
     </div>
