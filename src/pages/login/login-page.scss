@@ -1,10 +1,33 @@
 @import '~@blueprintjs/core/src/common/variables';
 
+.login-page__layout-root {
+
+}
+
 .login-page__positioner {
   align-items: center;
   display: flex;
   min-height: 100%;
   position: relative;
+}
+
+.login-page__positioner .z-header__logo {
+  position: fixed;
+  top: 30px;
+  left: 24px;
+  z-index: 2;
+
+  width: 38px;
+  font-size: 65px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 0;
+
+  .z-header__logo--dot {
+    font-size: 57px;
+    color: #f2b824;
+  }
 }
 
 .login-page__positioner .login-page__background {
@@ -14,10 +37,16 @@
   height: 100%;
   width: 629px;
   background-color: $turquoise4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.login-page__positioner form {
+  z-index: 1;
 }
 
 .login-page__positioner .login-page__card {
-  z-index: 1;
   height: 358px;
   margin-left: 503px;
   width: 552px;
@@ -42,6 +71,10 @@
 }
 
 .login-page__card .bp3-button {
-  //margin-top: 5px;
   width: 164px;
+}
+
+.login-page__image {
+  height: 381px;
+  margin-left: 30px;
 }

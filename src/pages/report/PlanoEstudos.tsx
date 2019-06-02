@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from "react";
-import { Card, FormGroup, NumericInput } from '@blueprintjs/core';
+import { Card, Colors, FormGroup, NumericInput } from '@blueprintjs/core';
 import { Table, Column, Cell} from '@blueprintjs/table';
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/table/lib/css/table.css";
@@ -36,7 +36,7 @@ export class PlanoEstudos extends React.Component {
   }
 
   private renderMaterias = (row: number) => {
-    return <Cell>{this.state.data[row].materia}</Cell>
+    return <Cell style={{ color: Colors.TURQUOISE3 }}>{this.state.data[row].materia}</Cell>
   }
   private renderMedia = (row: number) => {
     return <Cell>{this.state.data[row].media.toFixed(1)}</Cell>

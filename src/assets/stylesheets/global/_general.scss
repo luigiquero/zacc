@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+#root,
+html,
+body {
+  height: 100%;
+}
+
+
+#root,
 html,
 body,
-#root,
 .z-layout,
 .z-layout__main,
 .z-content {
-  height: 100%;
   min-height: 100%;
 }
 

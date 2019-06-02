@@ -1,10 +1,11 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import './layout.scss';
 
-const Layout = ({ children }: React.ComponentProps<'div'>) => {
+const Layout = ({ children, className }: React.ComponentProps<'div'>) => {
   return (
-    <div className="z-layout">
+    <div className={classNames('z-layout', className)}>
       {children}
     </div>
   );

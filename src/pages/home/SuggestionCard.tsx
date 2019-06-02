@@ -59,7 +59,7 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
       <Table
         enableRowHeader={false}
         numRows={_suggestions.length as number}
-        columnWidths={widths(4)}
+        columnWidths={widths(3)}
         defaultRowHeight={40}
       >
         <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>

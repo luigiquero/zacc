@@ -1,4 +1,43 @@
-.z-materias-score {
+@import '~@blueprintjs/core/src/common/variables';
 
+.materia__first-section {
+  display: flex;
+  justify-content: space-between;
 }
 
+.materia__card {
+  padding: 0;
+  padding-top: 12px;
+  margin-bottom: 36px;
+}
+
+.materia__card--table {
+  width: 390px;
+  //height: 290px;
+
+  .bp3-table-container {
+    border-radius: $pt-border-radius;
+  }
+
+  .materia__text--table {
+    margin-left: 22px;
+    margin-bottom: 31px;
+    width: 246px;
+    height: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5c7080;
+  }
+
+  &:first-child { margin-right: 32px; }
+  &:last-child { margin-left: 32px; }
+  &:only-child { margin-left: 0; margin-right: 0; }
+}
+
+.home__card {
+  margin-bottom: 36px;
+}
+
+.home__first-section .home__card {
+
+}

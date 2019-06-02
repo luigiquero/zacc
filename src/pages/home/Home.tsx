@@ -4,10 +4,11 @@ import Content from '../../components/content/Content';
 import Menu from '../../components/menu/Menu';
 import Header from '../../components/header/Header';
 import { Button, Card, NavbarHeading, Text } from '@blueprintjs/core';
-import MenuItem from '../../components/menu/MenuItem';
 import { userActions } from '../../redux/user';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
+
+import SUPER_SVG from '../../assets/images/super.svg';
 
 import './home.scss';
 import SuggestionCard from './SuggestionCard';
@@ -49,6 +50,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 <div className="home__svg home__svg--superhero">
                   svg placeholder
                 </div>
+                <img src={SUPER_SVG} alt="super heroi" />
                 <p className="home__text home__text--congrats">
                   Parabéns você está entre os 7%
                   melhores do Brasil em Matemática
