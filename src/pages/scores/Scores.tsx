@@ -45,6 +45,12 @@ const Scores = connect(null, { setLogged: userActions.setLogged })(
           <Menu />
 
           <Content className="performance">
+            <div>
+              <Button className="performance__button" leftIcon="add">
+                Nota
+              </Button>
+            </div>
+
             <MateriasScore/>
           </Content>
         </Layout.Main>

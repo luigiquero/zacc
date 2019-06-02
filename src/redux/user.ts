@@ -7,7 +7,7 @@ export const userActions = {
 };
 
 export const initialUserState = {
-  logged: false,
+  logged: true,
   name: 'Zackerzon da Silva'
 };
 
