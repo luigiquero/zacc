@@ -18,7 +18,7 @@ export class MateriasScore extends React.Component<any> {
             numRows={activity.provas.length}
             enableRowHeader={false}
           >
-            <Column name="Provas" cellRenderer={(rowIndex) => <Cell>{activity.provas[rowIndex].name}</Cell>}/>
+            <Column name="Prova" cellRenderer={(rowIndex) => <Cell>{activity.provas[rowIndex].name}</Cell>}/>
             <Column name="Nota" cellRenderer={(rowIndex) => <Cell>{activity.provas[rowIndex].nota.toFixed(2)}</Cell>}/>
           </Table>
         </Card>
