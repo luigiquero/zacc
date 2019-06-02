@@ -5,12 +5,16 @@ import { InputGroup, Button, Card, H1, Intent, FormGroup } from '@blueprintjs/co
 
 import './login-page.scss';
 import { userService } from '../../utils/requests';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { Redirect, RouteComponentProps, withRouter } from 'react-router';
 import { userActions } from '../../redux/user';
 import { connect } from 'react-redux';
+import { AppState } from '../../redux/Store';
 
-const LoginForm = connect(null, { setLogged: userActions.setLogged })(
-  withRouter(({ history, setLogged }: RouteComponentProps & { setLogged: typeof userActions.setLogged }) => {
+const LoginForm = connect(({ user: { logged } }: AppState) => ({ logged }), { setLogged: userActions.setLogged })(
+  withRouter(({ history, setLogged, logged }: RouteComponentProps & { setLogged: typeof userActions.setLogged, logged: boolean }) => {
+    if (logged) {
+      return <Redirect to="/home" />;
+    }
   const [{ loading, error }, setState] = useState({ loading: false, error: '' });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -65,7 +69,8 @@ const LoginForm = connect(null, { setLogged: userActions.setLogged })(
         <Button
           type="button"
           loading={loading}
-          large intent={Intent.PRIMARY}
+          large
+          intent={Intent.PRIMARY}
           onClick={submitLogin}
         >
           Entrar

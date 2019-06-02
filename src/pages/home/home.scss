@@ -1,0 +1,90 @@
+.home__first-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__card {
+  margin-bottom: 36px;
+}
+
+.home__first-section .home__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 419px;
+  flex: 1;
+  height: 313px;
+
+  &:first-child { margin-right: 32px; }
+  &:last-child { margin-left: 32px; }
+}
+
+.home__card.home__card--suggestion {
+  padding: 71px 90px 81px 90px;
+
+  .home__positioner {
+    display: flex;
+    justify-content: center;
+    margin-top: 33px;
+  }
+}
+
+.home__card.home__card--table {
+  padding: 16px 0 17px 0;
+
+  .home__text--table {
+    margin-left: 22px;
+    width: 246px;
+    height: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5c7080;
+  }
+
+  .home__text--more {
+    margin-top: 49px;
+    width: 77px;
+    height: 22px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6f8291;
+  }
+}
+
+.home__button {}
+.home__button.home__button--suggestion {
+  &:first-child { margin-right: 34px; }
+  &:last-child { margin-left: 34px; }
+}
+
+.home__svg {}
+.home__svg.home__svg--superhero {
+  border: 1px solid black;
+  min-width: 223px;
+  min-height: 215px;
+}
+
+.home__text {
+  text-align: center;
+  color: #5c7080;
+}
+.home__text.home__text--congrats {
+  margin-top: 5px;
+  width: 394px;
+  height: 67px;
+  font-size: 22px;
+  line-height: 1.32;
+}
+
+.home__text.home__text--suggestion {
+  width: 728px;
+  height: 86px;
+  font-size: 32px;
+}
+
+.home__text.home__text--performance {
+  width: 158px;
+  height: 33px;
+  font-size: 24px;
+  font-weight: bold;
+}

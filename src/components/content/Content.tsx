@@ -1,8 +1,11 @@
+import classNames from 'classnames';
 import React from 'react';
 
-const Content = ({ children }: React.ComponentProps<'div'>) => {
+import './content.scss';
+
+const Content = ({ children, className }: React.ComponentProps<'div'>) => {
   return (
-    <div className="z-content">
+    <div className={classNames('z-content', className)}>
       {children}
     </div>
   );

@@ -1,5 +1,8 @@
 .z-menu {
-  width: 89px;
-  border: solid 1px #ebedf8;
+  min-width: 89px;
+  border-width: 0;
+  border-right-color: #ebedf8;
+  border-right-width: 1px;
+  border-style: solid;
   background-color: #ffffff;
 }
