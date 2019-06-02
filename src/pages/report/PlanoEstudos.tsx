@@ -55,33 +55,45 @@ export class PlanoEstudos extends React.Component {
     return <Cell>{message}</Cell>
   }
 
+  private SelectHours = () => {
+    return (
+      <>
+        <FormGroup
+          label="Quantidade de horas que pretendo estudar essa semana"
+          labelFor="text-input"
+        >
+          <NumericInput
+            min={0}
+            max={100}
+            onValueChange={(v) => {
+              this.setState({
+                totalStudy: v,
+                data: this.getStudyPlanData(v),
+              });
+            }}
+            value={this.state.totalStudy}
+          />
+        </FormGroup>
+      </>
+    )
+  }
+
+  private StudyHours = () => {
+    return (
+      <Table numRows={this.state.data.length}>
+        <Column name="Matéria" cellRenderer={this.renderMaterias}/>
+        <Column name="Média" cellRenderer={this.renderMedia}/>
+        <Column name="Horas de Estudos" cellRenderer={this.renderStudyHours}/>
+      </Table>
+    )
+  }
+
   render() {
-    console.log(this.state);
     return (
       <div className="z-study-plan">
         <Card className="z-card">
-          <FormGroup
-            label="Quantidade de horas que pretendo estudar essa semana"
-            labelFor="text-input"
-          >
-            <NumericInput
-              min={0}
-              max={100}
-              onValueChange={(v) => {
-                this.setState({
-                  totalStudy: v,
-                  data: this.getStudyPlanData(v),
-                });
-              }}
-              value={this.state.totalStudy}
-            />
-          </FormGroup>
-  
-          <Table numRows={this.state.data.length}>
-            <Column name="Matéria" cellRenderer={this.renderMaterias}/>
-            <Column name="Média" cellRenderer={this.renderMedia}/>
-            <Column name="Horas de Estudos" cellRenderer={this.renderStudyHours}/>
-          </Table>
+          <this.SelectHours/>
+          <this.StudyHours/>
         </Card>
       </div>
     );
