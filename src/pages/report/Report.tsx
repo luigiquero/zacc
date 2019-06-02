@@ -42,11 +42,11 @@ const StudyPlan = () => {
 const Report = () => {
   return (
     <Layout.Root>
-      <Menu>
-      </Menu>
+      <Header>
+      </Header>
       <Layout.Main>
-        <Header>
-        </Header>
+        <Menu>
+        </Menu>
         <Content>
           <ChartPerformance/>
           <StudyPlan/>

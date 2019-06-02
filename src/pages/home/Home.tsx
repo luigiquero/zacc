@@ -3,18 +3,23 @@ import Layout from '../../components/layout/Layout';
 import Content from '../../components/content/Content';
 import Menu from '../../components/menu/Menu';
 import Header from '../../components/header/Header';
-import { connect } from 'react-redux';
+import { Colors, Icon, Intent } from '@blueprintjs/core';
+import MenuItem from '../../components/menu/MenuItem';
 
 const Home = () => {
   return (
     <Layout.Root>
-      <Menu>
+      <Header>
 
-      </Menu>
+      </Header>
+
       <Layout.Main>
-        <Header>
+        <Menu>
+          <MenuItem to="/home" iconName="home" popover="Home"/>
+          <MenuItem to="/como-estou" iconName="dashboard" popover="Como estou" />
+          <MenuItem to="/historico" iconName="series-configuration" popover="Dashboard"/>
+        </Menu>
 
-        </Header>
         <Content>
 
         </Content>
@@ -23,4 +28,4 @@ const Home = () => {
   )
 };
 
-export default connect()(Home);
+export default Home;

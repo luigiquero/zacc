@@ -1,16 +1,17 @@
 .z-layout {
   width: 100%;
+  background-color: #f5f8fa;
 }
 
-.z-layout .z-menu {
+.z-layout .z-header {
 
 }
 
 .z-layout .z-layout__main {
-
+  display: flex;
 }
 
-.z-layout__main .z-header {
+.z-layout__main .z-menu {
 
 }
 

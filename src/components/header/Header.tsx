@@ -11,14 +11,14 @@ const Header = ({ children, history }: React.ComponentProps<'div'> & RouteCompon
 
   return (
     <Navbar className="z-header">
-      <NavbarGroup align={Alignment.LEFT}>
+      <NavbarGroup align={Alignment.LEFT} className="z-header__group">
         <NavbarHeading>
           <Button minimal large onClick={onClick}>
             Zacc
           </Button>
         </NavbarHeading>
       </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
+      <NavbarGroup align={Alignment.RIGHT} className="z-header__group">
         {children}
       </NavbarGroup>
     </Navbar>

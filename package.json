@@ -8,6 +8,8 @@
     "@blueprintjs/icons": "^3.9.0",
     "@blueprintjs/select": "^3.8.1",
     "@blueprintjs/table": "^3.5.0",
+    "@types/classnames": "^2.2.8",
+    "classnames": "^2.2.6",
     "fusioncharts": "^3.13.5",
     "lodash": "^4.17.11",
     "normalize.css": "~8.0.1",

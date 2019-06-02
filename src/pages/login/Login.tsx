@@ -75,7 +75,7 @@ const LoginForm = connect(null, { setLogged: userActions.setLogged })(
   );
 }));
 
-const Home = () => {
+const Login = () => {
   return (
     <Layout.Root>
       <Layout.Main>
@@ -87,4 +87,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

@@ -1,0 +1,15 @@
+@import '~@blueprintjs/core/src/common/variables';
+
+.z-menu-item {
+  height: 56px;
+  margin-top: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.z-menu-item.z-menu-item--active {
+  box-sizing: border-box;
+  border-right: 3px solid $turquoise3;
+}

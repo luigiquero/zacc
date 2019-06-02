@@ -7,7 +7,7 @@ export const userActions = {
 };
 
 export const initialUserState = {
-  logged: false,
+  logged: true,
 };
 
 export default function userReducer(state = initialUserState, action: AnyAction) {
