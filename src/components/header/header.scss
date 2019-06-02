@@ -2,6 +2,7 @@
 
 .bp3-navbar.z-header {
   padding-right: 83px;
+  padding-left: 0;
   height: 70px;
   box-shadow:
           0 0 0 1px #ebedf8,
@@ -11,4 +12,18 @@
 
 .bp3-navbar-group.z-header__group {
   height: 100%;
+}
+
+.z-header .z-header__logo {
+  width: 38px;
+  font-size: 65px;
+  font-weight: bold;
+  color: #14ccbd;
+  line-height: 1;
+  margin-bottom: 0;
+
+  .z-header__logo--dot {
+    font-size: 57px;
+    color: #f2b824;
+  }
 }

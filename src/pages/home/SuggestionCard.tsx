@@ -32,22 +32,42 @@ const SuggestionCardSuggest = (props: ReturnType<typeof useSuggestionCard>) => {
   );
 };
 
+const indexToSubject = [
+  'Redação',
+  'Gramática',
+  'Literatura',
+];
+
+const findNextDiff = (target: any, list: any[]) => {
+  if (list.length === 0) {
+    return target;
+  }
+
+  const index = list.indexOf(target);
+
+  if (index === -1) {
+    return target;
+  }
+
+  return list[(index + 1) % list.length];
+};
+
 const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
-  const [_suggestions, setState] = useState(suggestions.slice(0, 3));
+  const [_suggestions, setState] = useState(indexToSubject.map(s => suggestions[s][0]));
 
   const swap = useCallback((i) => () => {
-    setState(_suggestions.map((s, _i) => _i === i
-      ? suggestions[_.random(0, suggestions.length - 1, false)]
-      : s,
-    ))
+    setState((state: any) => {
+      const subject = indexToSubject[i];
+      return state.map((s: any, _i: number) => i === _i ? findNextDiff(state[i], suggestions[subject]) : s);
+    })
   }, [_suggestions]);
 
   return (
     <>
       <p>Sugestão de estudos</p>
-      <Table numRows={_suggestions.length}>
-        <Column name="Matéria" cellRenderer={(i) => <Cell>{_suggestions[i].materia}</Cell>}/>
-        <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i].conteudo}</Cell>}/>
+      <Table numRows={_suggestions.length as number}>
+        <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>
+        <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
         <Column
           name=""
           cellRenderer={(i) => (

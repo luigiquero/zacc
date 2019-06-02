@@ -1,7 +1,18 @@
-export default [
-  { materia: 'Redação', conteudo: '10 Dicas para melhorar sua redação!' },
-  { materia: 'Gramática', conteudo: 'O que é semivogal?' },
-  { materia: 'Gramática', conteudo: 'Acentuação de palavras proparoxítonas' },
-  { materia: 'Literatura', conteudo: 'Literatura no Enem: como estudar a disciplina para a prova' },
-];
-
+export default {
+  Redação: [
+    '10 Dicas para melhorar sua redação!',
+    'lorem',
+    'ipsum'
+  ],
+  Gramática: [
+    'O que é semivogal?',
+    'Acentuação de palavras proparoxítonas',
+    'lorem',
+    'ipsum'
+  ],
+  Literatura: [
+    'Literatura no Enem: como estudar a disciplina para a prova',
+    'lorem',
+    'ipsum'
+  ],
+} as { [x: string]: string[] };

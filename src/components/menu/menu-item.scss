@@ -2,7 +2,7 @@
 
 .z-menu-item {
   height: 56px;
-  margin-top: 56px;
+  margin-top: 40px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -11,4 +11,13 @@
 
 .z-menu-item.z-menu-item--active {
   border-right: 3px solid $turquoise3;
+}
+
+.z-menu-item__popover {
+  height: 40px;
+  border-radius: 4px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import './menu-item.scss';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Colors, Icon, Intent, Popover, PopoverInteractionKind } from '@blueprintjs/core';
+
+import './menu-item.scss';
 
 type MenuItemProps = RouteComponentProps
   & {
@@ -25,9 +26,9 @@ const MenuItem = ({ location, to, iconName, popover }: MenuItemProps) => {
       <div className={className}>
         <Popover
           interactionKind={PopoverInteractionKind.HOVER}
-          content={<div>{popover}</div>}
           hoverOpenDelay={0}
           hoverCloseDelay={0}
+          position={'right'}
         >
           <Icon
             icon={iconName}
@@ -35,6 +36,9 @@ const MenuItem = ({ location, to, iconName, popover }: MenuItemProps) => {
             intent={isHere ? Intent.PRIMARY : Intent.NONE}
             color={isHere ? Colors.TURQUOISE3 : Colors.GRAY3}
           />
+          <div className="z-menu-item__popover">
+            {popover}
+          </div>
         </Popover>
       </div>
     </Link>
