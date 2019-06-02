@@ -9,6 +9,7 @@
     "@blueprintjs/select": "^3.8.1",
     "@blueprintjs/table": "^3.5.0",
     "fusioncharts": "^3.13.5",
+    "lodash": "^4.17.11",
     "normalize.css": "~8.0.1",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/fusioncharts": "^3.11.5",
     "@types/jest": "24.0.13",
+    "@types/lodash": "^4.14.133",
     "@types/node": "12.0.4",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
