@@ -2,122 +2,70 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import React from "react";
 import FusionCharts from "fusioncharts";
+import store from "../../../redux/Store";
 
 // Resolves charts dependancy
 charts(FusionCharts);
 
-const dataSource = {
-  chart: {
-    caption: "Performance de notas",
-    showhovereffect: "1",
-    drawcrossline: "1",
-    theme: "fusion",
-    yaxisMaxValue: "10",
-    yaxisMinValue: "0",
-  },
-  categories: [
-    {
-      category: [
-        {
-          label: "P1"
-        },
-        {
-          label: "P2"
-        },
-        {
-          label: "P3"
-        },
-        {
-          label: "P4"
-        }
-      ]
-    }
-  ],
-  dataset: [
-    {
-      seriesname: "Matemática",
-      data: [
-        {
-          value: "7.8"
-        },
-        {
-          value: "8.5"
-        },
-        {
-          value: "9"
-        },
-        {
-          value: "6"
-        },
-      ]
-    },
-    {
-      seriesname: "História",
-      data: [
-        {
-          value: "9"
-        },
-        {
-          value: "8"
-        },
-        {
-          value: "7"
-        },
-        {
-          value: "4.5"
-        },
-      ]
-    },
-    {
-      seriesname: "Geografia",
-      data: [
-        {
-          value: "5"
-        },
-        {
-          value: "6"
-        },
-        {
-          value: "7"
-        },
-        {
-          value: "8"
-        },
-      ]
-    },
-    {
-      seriesname: "Inglês",
-      data: [
-        {
-          value: "8"
-        },
-        {
-          value: "5"
-        },
-        {
-          value: "8"
-        },
-        {
-          value: "3"
-        },
-      ]
-    }
-  ],
-  trendlines: [
-    {
-      line: [
-        {
-          "startvalue": "6",
-          "color": "#cccc",
-          "valueOnRight": "1",
-          "displayvalue": "Média"
-        }
-      ]
-    }
-]
-};
+const MEDIA_PRA_PASSAR = 6;
 
 export class LineChart extends React.Component {
+  private getMateriasData() {
+    return store.getState().activities.map((activity, index) => {
+      return {
+        seriesname: activity.materia,
+        visible: index == 0 ? "1" : "0",
+        data: activity.provas.map((prova: { nota: any; }) => {
+          return {
+            value: prova.nota
+          }
+        })
+      }
+    })
+  }
+  
+  private dataSource = {
+    chart: {
+      caption: "Performance de notas",
+      showhovereffect: "1",
+      drawcrossline: "1",
+      theme: "fusion",
+      yaxisMaxValue: "10",
+      yaxisMinValue: "0",
+    },
+    categories: [
+      {
+        category: [
+          {
+            label: "P1"
+          },
+          {
+            label: "P2"
+          },
+          {
+            label: "P3"
+          },
+          {
+            label: "P4"
+          }
+        ]
+      }
+    ],
+    dataset: this.getMateriasData(),
+    trendlines: [
+      {
+        line: [
+          {
+            "startvalue": MEDIA_PRA_PASSAR,
+            "color": "#cccc",
+            "valueOnRight": "1",
+            "displayvalue": "Média"
+          }
+        ]
+      }
+    ]
+  };
+
   render() {
     return (
       <ReactFusioncharts
@@ -125,7 +73,7 @@ export class LineChart extends React.Component {
         width="400"
         height="400"
         dataFormat="JSON"
-        dataSource={dataSource}
+        dataSource={this.dataSource}
       />
     );
   }
