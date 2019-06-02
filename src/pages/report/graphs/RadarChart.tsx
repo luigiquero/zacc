@@ -32,7 +32,6 @@ export class RadarChart extends React.Component {
     })
   }
 
-
   private dataSource = {
     chart: {
       caption: "Média Geral por Matérias",

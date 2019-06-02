@@ -16,6 +16,7 @@ const ChartPerformance = () => {
       <Card className="z-radar">
         <RadarChart/>
       </Card>
+
       <Card className="z-line">
         <LineChart/>
       </Card>
@@ -32,8 +33,11 @@ const Report = () => {
         <Menu>
         </Menu>
         <Content>
+          
           <ChartPerformance/>
+
           <PlanoEstudos/>
+
         </Content>
       </Layout.Main>
     </Layout.Root>
