@@ -47,10 +47,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
           <Content className="home">
             <div className="home__first-section">
               <Card elevation={2} className="home__card">
-                <div className="home__svg home__svg--superhero">
-                  svg placeholder
-                </div>
-                <img src={SUPER_SVG} alt="super heroi" />
+                <img src={SUPER_SVG} alt="super heroi" className="home__svg home__svg--superhero"/>
                 <p className="home__text home__text--congrats">
                   Parabéns você está entre os 7%
                   melhores do Brasil em Matemática
