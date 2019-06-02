@@ -46,7 +46,7 @@ const activitiesMock = [
     provas: [
       {
         name: "P1",
-        nota: 2.59,
+        nota: 9.59,
       },
       {
         name: "P2",
