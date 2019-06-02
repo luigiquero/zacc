@@ -4,6 +4,7 @@ import { Cell, Column, Table } from '@blueprintjs/table';
 import { Link } from 'react-router-dom';
 
 import suggestions from '../../data/suggestionsMock';
+import { widths } from '../../utils/table';
 
 enum SuggestionCardState {
   initial,
@@ -55,7 +56,11 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
   return (
     <div className="check">
       <p className="home__card-title">Sugestão de estudos</p>
-      <Table numRows={_suggestions.length as number}>
+      <Table
+        enableRowHeader={false}
+        numRows={_suggestions.length as number}
+        columnWidths={widths(3)}
+      >
         <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>
         <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
         <Column

@@ -5,6 +5,7 @@ import { Table, Column, Cell} from '@blueprintjs/table';
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/table/lib/css/table.css";
 import store from "../../redux/Store";
+import { widths } from '../../utils/table';
 
 const MAX_SCORE = 10;
 
@@ -38,7 +39,7 @@ export class PlanoEstudos extends React.Component {
     return <Cell>{this.state.data[row].materia}</Cell>
   }
   private renderMedia = (row: number) => {
-    return <Cell>{this.state.data[row].media.toFixed(2)}</Cell>
+    return <Cell>{this.state.data[row].media.toFixed(1)}</Cell>
   }
 
   private renderStudyHours = (row: number) => {
@@ -59,15 +60,21 @@ export class PlanoEstudos extends React.Component {
 
   private SelectHours = () => {
     return (
-      <>
+      <div className="performance__card-title--wrapper">
         <p className="performance__card-title">
-          Quantidade de horas que pretendo estudar essa semana
+          Plano de Estudos
         </p>
-        <FormGroup labelFor="numeric-input" className="performance__numberic-input">
+        <FormGroup
+          label="Quantidade de horas"
+          labelFor="numeric-input"
+          inline
+          className="performance__numberic-input"
+        >
           <NumericInput
             id="numeric-input"
             min={0}
             max={100}
+            style={{ maxWidth: '100px' }}
             onValueChange={(v) => {
               this.setState({
                 totalStudy: v,
@@ -77,13 +84,17 @@ export class PlanoEstudos extends React.Component {
             value={this.state.totalStudy}
           />
         </FormGroup>
-      </>
+      </div>
     )
   }
 
   private StudyHours = () => {
     return (
-      <Table numRows={this.state.data.length}>
+      <Table
+        numRows={this.state.data.length}
+        enableRowHeader={false}
+        columnWidths={widths(3)}
+      >
         <Column name="Matéria" cellRenderer={this.renderMaterias}/>
         <Column name="Média" cellRenderer={this.renderMedia}/>
         <Column name="Horas de Estudos" cellRenderer={this.renderStudyHours}/>

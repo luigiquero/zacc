@@ -13,6 +13,7 @@ import './home.scss';
 import SuggestionCard from './SuggestionCard';
 import { Cell, Column, Table } from '@blueprintjs/table';
 import { RadarChart } from '../report/graphs/RadarChart';
+import { widths } from '../../utils/table';
 
 const vocations = [
   { curso: 'Matemática', faculdade: 'Usp', turno: 'Matutino', notaDeCorte: 643.0, cidade: 'São Paulo, SP' },
@@ -66,7 +67,11 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 Orientação Vocacional
               </p>
 
-              <Table numRows={vocations.length}>
+              <Table
+                numRows={vocations.length}
+                enableRowHeader={false}
+                columnWidths={widths(5)}
+              >
                 <Column name="Curso" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].curso}</Cell>}/>
                 <Column name="Faculdade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].faculdade}</Cell>}/>
                 <Column name="Turno" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].turno}</Cell>}/>
