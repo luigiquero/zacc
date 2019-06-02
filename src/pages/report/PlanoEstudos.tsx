@@ -39,7 +39,7 @@ export class PlanoEstudos extends React.Component {
     return <Cell style={{ color: Colors.TURQUOISE3 }}>{this.state.data[row].materia}</Cell>
   }
   private renderMedia = (row: number) => {
-    return <Cell>{this.state.data[row].media.toFixed(1)}</Cell>
+    return <Cell>{this.state.data[row].media.toFixed(2)}</Cell>
   }
 
   private renderStudyHours = (row: number) => {

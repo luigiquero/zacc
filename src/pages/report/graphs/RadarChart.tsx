@@ -35,6 +35,7 @@ export class RadarChart extends React.Component<any> {
 
   private dataSource = {
     chart: {
+      paletteColors: `${Colors.TURQUOISE3}, ${Colors.COBALT3}`,
       caption: this.props.title || "Desempenho por Matérias",
       theme: "fusion",
       showlegend: "1",

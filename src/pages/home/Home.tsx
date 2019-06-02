@@ -49,8 +49,8 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
               <Card elevation={2} className="home__card">
                 <img src={SUPER_SVG} alt="super heroi" className="home__svg home__svg--superhero"/>
                 <p className="home__text home__text--congrats">
-                  Parabéns você está entre os 7%
-                  melhores do Brasil em Matemática
+                  Parabéns você está entre os <span style={{color: Colors.GOLD4}}>7%
+                  melhores do Brasil</span> em Matemática
                 </p>
               </Card>
 
