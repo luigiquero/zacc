@@ -1,6 +1,5 @@
 .z-layout {
   width: 100%;
-  background-color: #f5f8fa;
 }
 
 .z-layout .z-header {
@@ -9,6 +8,7 @@
 
 .z-layout .z-layout__main {
   display: flex;
+  background-color: #f5f8fa;
 }
 
 .z-layout__main .z-menu {

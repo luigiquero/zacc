@@ -7,7 +7,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 const Header = ({ children, history }: React.ComponentProps<'div'> & RouteComponentProps) => {
   const onClick = useCallback(() => {
     history.push('/home');
-  }, []);
+  }, [history]);
 
   return (
     <Navbar className="z-header">

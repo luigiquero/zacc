@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={["/home", "/"]} exact>
+        <Route path="/home" exact>
           <AuthRoute>
             <Home />
           </AuthRoute>
