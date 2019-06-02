@@ -60,11 +60,12 @@ export class PlanoEstudos extends React.Component {
   private SelectHours = () => {
     return (
       <>
-        <FormGroup
-          label="Quantidade de horas que pretendo estudar essa semana"
-          labelFor="text-input"
-        >
+        <p className="performance__card-title">
+          Quantidade de horas que pretendo estudar essa semana
+        </p>
+        <FormGroup labelFor="numeric-input" className="performance__numberic-input">
           <NumericInput
+            id="numeric-input"
             min={0}
             max={100}
             onValueChange={(v) => {
@@ -92,8 +93,8 @@ export class PlanoEstudos extends React.Component {
 
   render() {
     return (
-      <div className="z-study-plan">
-        <Card className="z-card">
+      <div className="performance__study">
+        <Card className="study__card">
           <this.SelectHours/>
           <this.StudyHours/>
         </Card>

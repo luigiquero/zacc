@@ -11,24 +11,10 @@ import { LineChart } from './graphs/LineChart';
 import { Button, Card, NavbarHeading, Text } from '@blueprintjs/core';
 import { PlanoEstudos } from './PlanoEstudos';
 
-import MenuItem from '../../components/menu/MenuItem';
 import { userActions } from '../../redux/user';
 
 import './report.scss';
 
-const ChartPerformance = () => {
-  return (
-    <div className="z-performance">
-      <Card className="z-radar">
-        <RadarChart width="500" height="500" />
-      </Card>
-
-      <Card className="z-line">
-        <LineChart />
-      </Card>
-    </div>
-  );
-};
 
 const Report = connect(null, { setLogged: userActions.setLogged })(
   withRouter(({ setLogged, history }: { setLogged: typeof userActions.setLogged } & RouteComponentProps) => {
@@ -50,16 +36,19 @@ const Report = connect(null, { setLogged: userActions.setLogged })(
         </Header>
 
         <Layout.Main>
-          <Menu>
-            <MenuItem to="/home" iconName="home" popover="Home" />
-            <MenuItem to="/progresso" iconName="dashboard" popover="Progresso" />
-          </Menu>
-          <Content>
+          <Menu />
 
-            <ChartPerformance />
+          <Content className="performance">
+            <div className="performance__first-section">
+              <Card className="performance__radar">
+                <RadarChart />
+              </Card>
 
+              <Card className="performance__line">
+                <LineChart />
+              </Card>
+            </div>
             <PlanoEstudos />
-
           </Content>
         </Layout.Main>
       </Layout.Root>

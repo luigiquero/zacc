@@ -40,10 +40,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
         </Header>
 
         <Layout.Main>
-          <Menu>
-            <MenuItem to="/home" iconName="home" popover="Home" />
-            <MenuItem to="/progresso" iconName="dashboard" popover="Progresso" />
-          </Menu>
+          <Menu />
 
           <Content className="home">
             <div className="home__first-section">
@@ -66,7 +63,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
 
             <Card elevation={2} className="home__card home__card--table">
               <p className="home__text--table">
-                Sugestões Vocacionais
+                Orientação Vocacional
               </p>
 
               <Table numRows={vocations.length}>

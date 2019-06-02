@@ -10,7 +10,7 @@ charts(FusionCharts);
 
 const MEDIA_PRA_PASSAR = 6;
 
-export class LineChart extends React.Component {
+export class LineChart extends React.Component<any> {
   private getMateriasData() {
     return store.getState().activities.map((activity, index) => {
       return {
@@ -32,7 +32,7 @@ export class LineChart extends React.Component {
       showhovereffect: "1",
       drawcrossline: "1",
       theme: "fusion",
-      yaxisMaxValue: "11",
+      yaxisMaxValue: "12",
       yaxisMinValue: "0",
     },
     categories: [
@@ -72,8 +72,8 @@ export class LineChart extends React.Component {
     return (
       <ReactFusioncharts
         type="msline"
-        width="400"
-        height="400"
+        width={this.props.width}
+        height={this.props.height}
         dataFormat="JSON"
         dataSource={this.dataSource}
       />

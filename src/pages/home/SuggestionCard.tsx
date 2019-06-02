@@ -22,15 +22,6 @@ function useSuggestionCard() {
   }
 }
 
-const SuggestionCardSuggest = (props: ReturnType<typeof useSuggestionCard>) => {
-  return (
-    <div className="suggestion">
-      <p>Fazer Sugestão</p>
-      <p onClick={props.reset}>Veja Mais</p>
-    </div>
-  );
-};
-
 const indexToSubject = [
   'Redação',
   'Gramática',
@@ -91,7 +82,7 @@ const SuggestionCardInitial = ({ suggestSubject, checkSuggestions }: ReturnType<
       temos algumas sugestões de estudos para você!
     </p>
     <div className="home__positioner">
-      <Button intent={Intent.NONE} large className="home__button home__button--suggestion" onClick={suggestSubject}>
+      <Button intent={Intent.NONE} large className="home__button home__button--suggestion">
         Sugerir Matéria
       </Button>
       <Button intent={Intent.PRIMARY} large className="home__button home__button--suggestion" onClick={checkSuggestions}>
@@ -112,7 +103,7 @@ const SuggestionCard = () => {
             return <SuggestionCardCheck {...suggestionConfig} />;
 
           case SuggestionCardState.suggest:
-            return <SuggestionCardSuggest {...suggestionConfig} />;
+            return null;
 
           case SuggestionCardState.initial:
           default:

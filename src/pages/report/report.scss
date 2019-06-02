@@ -1,16 +1,43 @@
-.z-performance {
-}
-
-.z-performance .z-radar {
-}
-
-.z-performance .z-line {
-}
-
-.z-study-plan {
+.performance {
 
 }
 
-.z-study-plan .z-card {
-  
+.performance__first-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.performance__radar,
+.performance__line {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 419px;
+  height: 313px;
+}
+
+.performance__radar {
+  margin-right: 32px;
+}
+
+.performance__line {
+  margin-left: 32px;
+}
+
+.performance__card-title {
+  margin-left: 22px;
+  height: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #5c7080;
+}
+
+.study__card {
+  padding: 12px 0 19px 0;
+}
+
+.performance__numberic-input {
+  margin-left: 22px;
 }
