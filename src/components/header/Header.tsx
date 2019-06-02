@@ -13,7 +13,7 @@ const Header = ({ children, history }: React.ComponentProps<'div'> & RouteCompon
     <Navbar className="z-header">
       <NavbarGroup align={Alignment.LEFT} className="z-header__group">
         <NavbarHeading>
-          <Button minimal large onClick={onClick}>
+          <Button minimal large onClick={onClick} className="z-header__logo--wrapper">
             <p className="z-header__logo">
               Z<span className="z-header__logo--dot">.</span>
             </p>

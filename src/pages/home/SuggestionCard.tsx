@@ -1,6 +1,5 @@
-import _ from 'lodash';
 import React, { useCallback, useState } from 'react';
-import { Button, Card, Intent } from '@blueprintjs/core';
+import { Button, Card, Colors, Intent } from '@blueprintjs/core';
 import { Cell, Column, Table } from '@blueprintjs/table';
 import { Link } from 'react-router-dom';
 
@@ -25,10 +24,10 @@ function useSuggestionCard() {
 
 const SuggestionCardSuggest = (props: ReturnType<typeof useSuggestionCard>) => {
   return (
-    <>
+    <div className="suggestion">
       <p>Fazer Sugestão</p>
       <p onClick={props.reset}>Veja Mais</p>
-    </>
+    </div>
   );
 };
 
@@ -60,11 +59,11 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
       const subject = indexToSubject[i];
       return state.map((s: any, _i: number) => i === _i ? findNextDiff(state[i], suggestions[subject]) : s);
     })
-  }, [_suggestions]);
+  }, []);
 
   return (
-    <>
-      <p>Sugestão de estudos</p>
+    <div className="check">
+      <p className="home__card-title">Sugestão de estudos</p>
       <Table numRows={_suggestions.length as number}>
         <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>
         <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
@@ -72,19 +71,21 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
           name=""
           cellRenderer={(i) => (
             <Cell>
-              <Link to="https://google.com">Estudar</Link>
-              <Button minimal onClick={swap(i)}>Opa</Button>
+              <div>
+                <Link to="https://google.com" style={{ color: Colors.TURQUOISE3}}>Estudar</Link>
+                <Button minimal onClick={swap(i)} intent={Intent.PRIMARY} icon="refresh"/>
+              </div>
             </Cell>
           )}
         />
       </Table>
-      <p onClick={props.reset}>Veja Mais</p>
-    </>
+      <p onClick={props.reset} className="see__more">Veja Mais</p>
+    </div>
   );
 };
 
 const SuggestionCardInitial = ({ suggestSubject, checkSuggestions }: ReturnType<typeof useSuggestionCard>) => (
-  <>
+  <div className="initial">
     <p className="home__text home__text--suggestion">
       Vimos que você não está tão bem em Português,
       temos algumas sugestões de estudos para você!
@@ -97,7 +98,7 @@ const SuggestionCardInitial = ({ suggestSubject, checkSuggestions }: ReturnType<
         Ver Sugestão
       </Button>
     </div>
-  </>
+  </div>
 );
 
 const SuggestionCard = () => {

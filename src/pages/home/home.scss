@@ -19,8 +19,21 @@
   &:last-child { margin-left: 32px; }
 }
 
+.home__card.home__card--performance {
+  padding: 0;
+}
+
 .home__card.home__card--suggestion {
-  padding: 71px 90px 81px 90px;
+  padding: 0;
+
+  & .initial {
+    padding: 71px 90px 81px 90px;
+  }
+
+  & .suggestion,
+  & .check {
+    padding: 12px 0 19px 0;
+  }
 
   .home__positioner {
     display: flex;
@@ -39,15 +52,6 @@
     font-size: 22px;
     font-weight: bold;
     color: #5c7080;
-  }
-
-  .home__text--more {
-    margin-top: 49px;
-    width: 77px;
-    height: 22px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #6f8291;
   }
 }
 
@@ -87,4 +91,25 @@
   height: 33px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.home__card-title {
+  margin-left: 22px;
+  width: 246px;
+  height: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #5c7080;
+}
+
+.see__more {
+  width: 100%;
+  padding-right: 22px;
+  text-align: right;
+  height: 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6f8291;
+  margin-bottom: 0;
+  margin-top: 22px;
 }

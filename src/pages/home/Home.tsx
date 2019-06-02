@@ -12,6 +12,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import './home.scss';
 import SuggestionCard from './SuggestionCard';
 import { Cell, Column, Table } from '@blueprintjs/table';
+import { RadarChart } from '../report/graphs/RadarChart';
 
 const vocations = [
   { curso: 'Matemática', faculdade: 'Usp', turno: 'Matutino', notaDeCorte: 643.0, cidade: 'São Paulo, SP' },
@@ -56,10 +57,8 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 </p>
               </Card>
 
-              <Card elevation={2} className="home__card">
-                <p className="home__text home__text--performance">
-                  Desempenho
-                </p>
+              <Card elevation={2} className="home__card home__card--performance">
+                <RadarChart title="Desempenho"/>
               </Card>
             </div>
 
@@ -78,7 +77,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 <Column name="Cidade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].cidade}</Cell>}/>
               </Table>
 
-              <p className="home__text--more">
+              <p className="see__more">
                 Veja Mais
               </p>
             </Card>

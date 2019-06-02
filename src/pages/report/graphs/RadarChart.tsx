@@ -6,7 +6,7 @@ import store from "../../../redux/Store";
 
 charts(FusionCharts);
 
-export class RadarChart extends React.Component {
+export class RadarChart extends React.Component<any> {
   private getMateriasData() {
     return store.getState().activities.map((activity) => {
       return {
@@ -19,7 +19,7 @@ export class RadarChart extends React.Component {
     return store.getState().activities.map((activity) => {
       let average = 0;
       let sum = 0;
-      
+
       activity.provas.forEach((prova: { nota: number; }) => {
         sum+= prova.nota;
       })
@@ -34,7 +34,7 @@ export class RadarChart extends React.Component {
 
   private dataSource = {
     chart: {
-      caption: "Média Geral por Matérias",
+      caption: this.props.title || "Média Geral por Matérias",
       theme: "fusion",
       showlegend: "0",
       showdivlinevalues: "0",
@@ -57,13 +57,13 @@ export class RadarChart extends React.Component {
       }
     ]
   };
-  
+
   render() {
     return (
       <ReactFusioncharts
         type="radar"
-        width="500"
-        height="500"
+        // width="500"
+        // height="500"
         dataFormat="JSON"
         dataSource={this.dataSource}
       />
