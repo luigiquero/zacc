@@ -7,29 +7,37 @@ charts(FusionCharts);
 
 const dataSource = {
   chart: {
-    caption: "Skill Analysis of Harry",
-    subcaption: "Escala: 0 (mínimo) a 10 (máximo)",
+    caption: "Média Geral por Matérias",
     theme: "fusion",
     showlegend: "0",
     showdivlinevalues: "0",
     showlimits: "0",
     showvalues: "1",
     plotfillalpha: "40",
+    yaxisMaxValue: "10",
+    yaxisMinValue: "0",
+    yaxisValuesStep: "1",
   },
   categories: [
     {
       category: [
         {
+          label: "Português"
+        },
+        {
           label: "História"
         },
         {
-          label: "Física"
+          label: "Geografia"
         },
         {
           label: "Biologia"
         },
         {
           label: "Química"
+        },
+        {
+          label: "Física"
         },
         {
           label: "Matemática"
@@ -42,22 +50,28 @@ const dataSource = {
       seriesname: "User Ratings",
       data: [
         {
-          value: "3"
+          value: "10"
         },
         {
-          value: "3"
+          value: "7"
         },
         {
-          value: "4"
+          value: "6"
         },
         {
-          value: "3"
+          value: "7"
         },
         {
-          value: "2"
+          value: "8"
         },
         {
-          value: "4"
+          value: "8"
+        },
+        {
+          value: "6.5"
+        },
+        {
+          value: "7.5"
         }
       ]
     }

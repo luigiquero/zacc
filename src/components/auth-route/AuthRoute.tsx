@@ -10,13 +10,13 @@ type AuthRouteProps = RouteComponentProps
   & { children: any };
 
 const AuthRoute = ({ children, history, logged }: AuthRouteProps) => {
-  useEffect(() => {
-    if (!logged) {
-      history.push('/login');
-    }
-  }, [logged]);
+  // useEffect(() => {
+  //   if (!logged) {
+  //     history.push('/login');
+  //   }
+  // }, [logged]);
 
-  if (!logged) return null;
+  // if (!logged) return null;
 
   return children;
 };

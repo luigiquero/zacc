@@ -11,25 +11,24 @@ const dataSource = {
     caption: "Performance de notas",
     showhovereffect: "1",
     drawcrossline: "1",
-    theme: "fusion"
+    theme: "fusion",
+    yaxisMaxValue: "10",
+    yaxisMinValue: "0",
   },
   categories: [
     {
       category: [
         {
-          label: "2012"
+          label: "P1"
         },
         {
-          label: "2013"
+          label: "P2"
         },
         {
-          label: "2014"
+          label: "P3"
         },
         {
-          label: "2015"
-        },
-        {
-          label: "2016"
+          label: "P4"
         }
       ]
     }
@@ -39,40 +38,34 @@ const dataSource = {
       seriesname: "Matemática",
       data: [
         {
-          value: "62"
+          value: "7.8"
         },
         {
-          value: "64"
+          value: "8.5"
         },
         {
-          value: "64"
+          value: "9"
         },
         {
-          value: "66"
+          value: "6"
         },
-        {
-          value: "78"
-        }
       ]
     },
     {
       seriesname: "História",
       data: [
         {
-          value: "16"
+          value: "9"
         },
         {
-          value: "28"
+          value: "8"
         },
         {
-          value: "34"
+          value: "7"
         },
         {
-          value: "42"
+          value: "4.5"
         },
-        {
-          value: "54"
-        }
       ]
     },
     {
@@ -90,32 +83,38 @@ const dataSource = {
         {
           value: "8"
         },
-        {
-          value: "7"
-        }
       ]
     },
     {
       seriesname: "Inglês",
       data: [
         {
-          value: "18"
+          value: "8"
         },
         {
-          value: "19"
+          value: "5"
         },
         {
-          value: "21"
+          value: "8"
         },
         {
-          value: "21"
+          value: "3"
         },
+      ]
+    }
+  ],
+  trendlines: [
+    {
+      line: [
         {
-          value: "24"
+          "startvalue": "6",
+          "color": "#cccc",
+          "valueOnRight": "1",
+          "displayvalue": "Média"
         }
       ]
     }
-  ]
+]
 };
 
 export class LineChart extends React.Component {
@@ -123,8 +122,8 @@ export class LineChart extends React.Component {
     return (
       <ReactFusioncharts
         type="msline"
-        width="100%"
-        height="100%"
+        width="400"
+        height="400"
         dataFormat="JSON"
         dataSource={dataSource}
       />
