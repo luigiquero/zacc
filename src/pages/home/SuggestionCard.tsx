@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import _ from 'lodash';
+import React, { useCallback, useState } from 'react';
 import { Button, Card, Intent } from '@blueprintjs/core';
-import { Column, Table } from '@blueprintjs/table';
+import { Cell, Column, Table } from '@blueprintjs/table';
+import { Link } from 'react-router-dom';
+
+import suggestions from '../../data/suggestionsMock';
 
 enum SuggestionCardState {
   initial,
@@ -22,21 +26,38 @@ function useSuggestionCard() {
 const SuggestionCardSuggest = (props: ReturnType<typeof useSuggestionCard>) => {
   return (
     <>
-      <p>Sugestão de estudos</p>
-      <Table numRows={5}>
-        <Column />
-        <Column />
-        <Column />
-      </Table>
+      <p>Fazer Sugestão</p>
       <p onClick={props.reset}>Veja Mais</p>
     </>
   );
 };
 
 const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
+  const [_suggestions, setState] = useState(suggestions.slice(0, 3));
+
+  const swap = useCallback((i) => () => {
+    setState(_suggestions.map((s, _i) => _i === i
+      ? suggestions[_.random(0, suggestions.length - 1, false)]
+      : s,
+    ))
+  }, [_suggestions]);
+
   return (
     <>
-      <p>Fazer Sugestão</p>
+      <p>Sugestão de estudos</p>
+      <Table numRows={_suggestions.length}>
+        <Column name="Matéria" cellRenderer={(i) => <Cell>{_suggestions[i].materia}</Cell>}/>
+        <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i].conteudo}</Cell>}/>
+        <Column
+          name=""
+          cellRenderer={(i) => (
+            <Cell>
+              <Link to="https://google.com">Estudar</Link>
+              <Button minimal onClick={swap(i)}>Opa</Button>
+            </Cell>
+          )}
+        />
+      </Table>
       <p onClick={props.reset}>Veja Mais</p>
     </>
   );

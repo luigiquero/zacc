@@ -11,6 +11,13 @@ import { RouteComponentProps, withRouter } from 'react-router';
 
 import './home.scss';
 import SuggestionCard from './SuggestionCard';
+import { Cell, Column, Table } from '@blueprintjs/table';
+
+const vocations = [
+  { curso: 'Matemática', faculdade: 'Usp', turno: 'Matutino', notaDeCorte: 643.0, cidade: 'São Paulo, SP' },
+  { curso: 'Engenharia Civil', faculdade: 'Ufscar', turno: 'Noturno', notaDeCorte: 643.0, cidade: 'São Carlos, SP' },
+  { curso: 'Engenharia de Produção', faculdade: 'Unicamp', turno: 'Noturno', notaDeCorte: 643.0, cidade: 'Campinas, SP' },
+];
 
 const Home = connect(null, { setLogged: userActions.setLogged })(
   withRouter(({ setLogged, history }: { setLogged: typeof userActions.setLogged } & RouteComponentProps) => {
@@ -34,8 +41,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
         <Layout.Main>
           <Menu>
             <MenuItem to="/home" iconName="home" popover="Home" />
-            <MenuItem to="/como-estou" iconName="dashboard" popover="Como estou" />
-            <MenuItem to="/historico" iconName="series-configuration" popover="Dashboard" />
+            <MenuItem to="/progresso" iconName="dashboard" popover="Progresso" />
           </Menu>
 
           <Content className="home">
@@ -63,9 +69,15 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
               <p className="home__text--table">
                 Sugestões Vocacionais
               </p>
-              <div>
-                 a table comes here
-              </div>
+
+              <Table numRows={vocations.length}>
+                <Column name="Curso" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].curso}</Cell>}/>
+                <Column name="Faculdade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].faculdade}</Cell>}/>
+                <Column name="Turno" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].turno}</Cell>}/>
+                <Column name="Nota de Corte" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].notaDeCorte}</Cell>}/>
+                <Column name="Cidade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].cidade}</Cell>}/>
+              </Table>
+
               <p className="home__text--more">
                 Veja Mais
               </p>

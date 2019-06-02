@@ -19,7 +19,7 @@ const App: React.FC = () => {
           <Login />
         </Route>
 
-        <Route path="/report" exact>
+        <Route path="/progresso" exact>
           <AuthRoute>
             <Report/>
           </AuthRoute>
