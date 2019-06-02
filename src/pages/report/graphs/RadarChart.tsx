@@ -7,37 +7,41 @@ charts(FusionCharts);
 
 const dataSource = {
   chart: {
-    caption: "Skill Analysis of Harry",
-    subcaption: "Scale: 1 (low) to 5 (high)",
+    caption: "Média Geral por Matérias",
     theme: "fusion",
     showlegend: "0",
     showdivlinevalues: "0",
     showlimits: "0",
     showvalues: "1",
     plotfillalpha: "40",
-    plottooltext: "Harry's <b>$label</b> skill is rated as <b>$value</b>"
+    yaxisMaxValue: "10",
+    yaxisMinValue: "0",
+    yaxisValuesStep: "1",
   },
   categories: [
     {
       category: [
         {
-          label: "Communication"
+          label: "Português"
         },
         {
-          label: "Punctuality"
+          label: "História"
         },
         {
-          label: "Problem Solving"
+          label: "Geografia"
         },
         {
-          label: "Meeting Deadlines"
+          label: "Biologia"
         },
         {
-          label: "Team Player"
+          label: "Química"
         },
         {
-          label: "Technical Knowledge"
-        }
+          label: "Física"
+        },
+        {
+          label: "Matemática"
+        },
       ]
     }
   ],
@@ -46,22 +50,28 @@ const dataSource = {
       seriesname: "User Ratings",
       data: [
         {
-          value: "3"
+          value: "10"
         },
         {
-          value: "3"
+          value: "7"
         },
         {
-          value: "4"
+          value: "6"
         },
         {
-          value: "3"
+          value: "7"
         },
         {
-          value: "2"
+          value: "8"
         },
         {
-          value: "4"
+          value: "8"
+        },
+        {
+          value: "6.5"
+        },
+        {
+          value: "7.5"
         }
       ]
     }

@@ -6,7 +6,6 @@ import './assets/stylesheets/index.scss';
 import App from './app/App';
 import Store from './redux/Store';
 
-
 import FusionCharts from 'fusioncharts/core';
 import Msline from 'fusioncharts/viz/msline';
 import Radar from 'fusioncharts/viz/radar';
