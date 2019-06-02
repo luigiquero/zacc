@@ -62,7 +62,7 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
         columnWidths={widths(3)}
         defaultRowHeight={40}
       >
-        <Column name="Matéria" cellRenderer={(i) => <Cell>{indexToSubject[i]}</Cell>}/>
+        <Column name="Matéria" cellRenderer={(i) => <Cell style={{ color: Colors.TURQUOISE3 }}>{indexToSubject[i]}</Cell>}/>
         <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
         <Column
           name=""

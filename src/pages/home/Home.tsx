@@ -3,7 +3,7 @@ import Layout from '../../components/layout/Layout';
 import Content from '../../components/content/Content';
 import Menu from '../../components/menu/Menu';
 import Header from '../../components/header/Header';
-import { Button, Card, NavbarHeading, Text } from '@blueprintjs/core';
+import { Button, Card, NavbarHeading, Text, Colors } from '@blueprintjs/core';
 import { userActions } from '../../redux/user';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
@@ -12,7 +12,7 @@ import SUPER_SVG from '../../assets/images/super.svg';
 
 import './home.scss';
 import SuggestionCard from './SuggestionCard';
-import { Cell, Column, Table } from '@blueprintjs/table';
+import { Cell, Column, Table, ColumnHeaderCell } from '@blueprintjs/table';
 import { RadarChart } from '../report/graphs/RadarChart';
 import { widths } from '../../utils/table';
 
@@ -72,10 +72,14 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 columnWidths={widths(5)}
                 defaultRowHeight={40}
               >
-                <Column name="Curso" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].curso}</Cell>}/>
+                <Column name="Curso" cellRenderer={(rowIndex) => <Cell style={{ color: Colors.TURQUOISE3 }}>{vocations[rowIndex].curso}</Cell>}/>
                 <Column name="Faculdade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].faculdade}</Cell>}/>
                 <Column name="Turno" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].turno}</Cell>}/>
-                <Column name="Nota de Corte" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].notaDeCorte}</Cell>}/>
+                <Column columnHeaderCellRenderer={()=> 
+                  <ColumnHeaderCell
+                    style={{ backgroundColor: Colors.TURQUOISE4 }}
+                    name="Nota de Corte" />}
+                  cellRenderer={(rowIndex) => <Cell style={{ backgroundColor: Colors.TURQUOISE4, color: Colors.WHITE }}>{vocations[rowIndex].notaDeCorte}</Cell>}/>
                 <Column name="Cidade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].cidade}</Cell>}/>
               </Table>
 
