@@ -3,7 +3,7 @@ import { Button, Card, Colors, Intent } from '@blueprintjs/core';
 import { Cell, Column, Table } from '@blueprintjs/table';
 import { Link } from 'react-router-dom';
 
-import suggestions from '../../data/suggestionsMock';
+import suggestions, { relativeLinks } from '../../data/suggestionsMock';
 import { widths } from '../../utils/table';
 
 enum SuggestionCardState {
@@ -44,12 +44,15 @@ const findNextDiff = (target: any, list: any[]) => {
 };
 
 const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
-  const [_suggestions, setState] = useState(indexToSubject.map(s => suggestions[s][0]));
+  const [_suggestions, setState] = useState(indexToSubject.map(s => [suggestions[s][0], relativeLinks[s][0]]));
 
   const swap = useCallback((i) => () => {
     setState((state: any) => {
       const subject = indexToSubject[i];
-      return state.map((s: any, _i: number) => i === _i ? findNextDiff(state[i], suggestions[subject]) : s);
+      return state.map((s: any, _i: number) => [
+        i === _i ? findNextDiff(state[i][0], suggestions[subject]) : s[0],
+        i === _i ? findNextDiff(state[i][1], relativeLinks[subject]) : s[1],
+      ]);
     })
   }, []);
 
@@ -63,17 +66,24 @@ const SuggestionCardCheck = (props: ReturnType<typeof useSuggestionCard>) => {
         defaultRowHeight={40}
       >
         <Column name="Matéria" cellRenderer={(i) => <Cell style={{ color: Colors.TURQUOISE3 }}>{indexToSubject[i]}</Cell>}/>
-        <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i]}</Cell>}/>
+        <Column name="Conteúdo" cellRenderer={(i) => <Cell>{_suggestions[i][0]}</Cell>}/>
         <Column
           name=""
-          cellRenderer={(i) => (
-            <Cell>
-              <Link to="https://google.com" style={{ color: Colors.TURQUOISE3, marginRight: 16, fontWeight: 'bold' }}>
-                Estudar!
-              </Link>
-              <Button minimal onClick={swap(i)} icon="refresh"/>
-            </Cell>
-          )}
+          cellRenderer={(i) => {
+            console.log(_suggestions[i][1]);
+            return (
+              <Cell>
+                <a
+                  target="_blank"
+                  href={_suggestions[i][1]}
+                  style={{ color: Colors.TURQUOISE3, marginRight: 16, fontWeight: 'bold' }}
+                >
+                  Estudar!
+                </a>
+                <Button minimal onClick={swap(i)} icon="refresh"/>
+              </Cell>
+            )
+          }}
         />
       </Table>
       <p onClick={props.reset} className="see__more">Veja Mais</p>

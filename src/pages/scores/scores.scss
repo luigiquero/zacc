@@ -1,0 +1,11 @@
+.performance__button-wrapper {
+  width: 100%;
+  display: flex;
+  //justify-content: flex-end;
+  margin-bottom: 36px;
+
+  .bp3-intent-primary {
+    border-color: #00B3A4 !important;
+    background-color: #00B3A4 !important;
+  }
+}

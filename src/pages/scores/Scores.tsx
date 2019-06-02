@@ -23,7 +23,7 @@ const Scores = connect(null, { setLogged: userActions.setLogged })(
     };
 
     const user = store.getState().user;
-    
+
     return (
       <Layout.Root>
         <Header>
@@ -45,9 +45,9 @@ const Scores = connect(null, { setLogged: userActions.setLogged })(
           <Menu />
 
           <Content className="performance">
-            <div>
-              <Button className="performance__button" leftIcon="add">
-                Nota
+            <div className="performance__button-wrapper">
+              <Button intent="primary" icon="add" large>
+                Adicionar Nota
               </Button>
             </div>
 

@@ -83,7 +83,7 @@ const Home = connect(null, { setLogged: userActions.setLogged })(
                 <Column name="Curso" cellRenderer={(rowIndex) => <Cell style={{ color: Colors.TURQUOISE3 }}>{vocations[rowIndex].curso}</Cell>}/>
                 <Column name="Faculdade" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].faculdade}</Cell>}/>
                 <Column name="Turno" cellRenderer={(rowIndex) => <Cell>{vocations[rowIndex].turno}</Cell>}/>
-                <Column columnHeaderCellRenderer={()=> 
+                <Column columnHeaderCellRenderer={()=>
                   <ColumnHeaderCell
                     style={{ backgroundColor: Colors.TURQUOISE4 }}
                     name="Nota de Corte" />}
